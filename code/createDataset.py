@@ -9,13 +9,12 @@ import cPickle
 from scipy.ndimage.filters import gaussian_filter
 import argparse
 from pylab import *
-import random 
 
 def generateSines(fLow, fHigh, sigma, size):
   inps = []; targs = []
   x = np.linspace(-2*np.pi, 2*np.pi)
   for i in range(size):
-    f = random.randint(fLow, fHigh)
+    f = np.random.random_integers(fLow, fHigh)
     y = np.sin(2*np.pi*f*x)
     targ = gaussian_filter(y, sigma)
     inps.append(y)
